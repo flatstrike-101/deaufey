@@ -1,0 +1,95 @@
+ideas = {
+
+	country = {
+	anti_monarchist = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+			}
+		}
+	dictatorship_gpe = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				political_power_gain = 1
+				stability_factor = 0.10
+			}
+		}
+
+	the_people_gpe = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.40
+				army_org_Factor = 0.05
+				industry_repair_factor = 0.20
+			}
+		}
+
+	red_coat_foundation = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				training_time_army_factor = -0.3
+				production_speed_arms_factory_factor = 0.2
+				defensive_war_stability_factor = 0.2
+				offensive_war_stability_factor = 0.2
+			}
+		}
+
+		anti_rascism = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.40
+				industry_repair_factor = 0.20
+			}
+		}
+	}

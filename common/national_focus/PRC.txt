@@ -1,0 +1,496 @@
+focus_tree = {
+	id = china_communist_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRC
+		}
+	}
+
+	focus = {
+		id = PRC_a_stronger_china
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 8
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_political_power = 100
+			set_rule = { can_create_factions = yes }
+			set_politics = {
+	ruling_party = communism
+	last_election = "1927.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 100
+}
+			}
+		}
+
+	focus = {
+		id = PRC_war_with_deutsches_china
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_a_stronger_china }
+		x = 4
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+				PRC = { 
+ 			create_wargoal = {
+ 				type = take_state_focus
+ 				target = GPE
+ 				generator = { 28 }
+			}
+		}
+	}
+}
+
+	focus = {
+		id = PRC_war_india
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_a_stronger_china }
+		x = 12
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+				PRC = { 
+ 			create_wargoal = {
+ 				type = take_state_focus
+ 				target = RAJ
+ 				generator = { 28 }
+			}
+		}
+	}
+}
+
+	focus = {
+		id = PRC_form_vietnam
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_war_with_deutsches_china }
+		available = {
+		owns_state = 671
+		owns_state = 670
+		owns_state = 286
+		}
+		x = 4
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		VIN{
+		transfer_state = 671
+		transfer_state = 670
+		transfer_state = 286
+		} 
+		puppet = VIN
+		add_to_faction = VIN
+					}
+}
+
+	focus = {
+		id = PRC_communist_india
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_war_india }
+		x = 12
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		puppet = RAJ
+		add_to_faction = RAJ
+					}
+}
+
+	focus = {
+		id = PRC_form_Indonesia
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_form_vietnam }
+		available = {
+		owns_state = 336
+		owns_state = 333
+		owns_state = 523
+		}
+		x = 4
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		GEA{
+		transfer_state = 336
+		transfer_state = 333
+		transfer_state = 523
+
+        create_country_leader = {
+			name = "Cheng Wu"
+			desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+			picture = "portrait_cheng_wu.dds"
+			expire = "1965.1.1"
+			ideology = maosim
+			traits = {
+			
+						}
+					}
+
+		} 
+		puppet = GEA
+		add_to_faction = GEA
+					}
+}
+
+		focus = {
+		id = PRC_gather_freinds
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_a_stronger_china }
+		x = 1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_to_faction = TAN
+			}
+		}
+
+		focus = {
+		id = PRC_invite_mongolia
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_gather_freinds }
+		x = 1
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		add_to_faction = MON
+			}
+		}
+		focus = {
+		id = PRC_invite_wales
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_invite_mongolia }
+		x = 1
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		add_to_faction = WLS
+			}
+		}
+
+		focus = {
+		id = PRC_invite_bolivar
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_invite_wales }
+		x = 1
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		add_to_faction = BOL
+			}
+		}
+		focus = {
+		id = PRC_invite_texas
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_invite_bolivar }
+		x = 1
+		y = 5
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		add_to_faction = TEX
+			}
+		}
+
+		focus = {
+		id = PRC_demand_manchuria
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_a_stronger_china }
+		x = 16
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		transfer_state = 611
+		transfer_state = 612
+		transfer_state = 761
+		transfer_state = 714
+		transfer_state = 717
+		transfer_state = 328
+		transfer_state = 716
+		transfer_state = 610
+		transfer_state = 715
+		transfer_state = 609
+		transfer_state = 745
+			}
+		}
+
+		focus = {
+		id = PRC_annex_sinkiang
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_demand_manchuria }
+		x = 16
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		transfer_state = 759
+		transfer_state = 760
+		transfer_state = 618
+		transfer_state = 617
+		transfer_state = 619
+		transfer_state = 287
+
+			}
+		}
+
+		focus = {
+		id = PRC_annex_tibet
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_annex_sinkiang }
+		x = 16
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		transfer_state = 322
+		transfer_state = 758
+		transfer_state = 757
+
+			}
+		}
+
+		focus = {
+		id = PRC_puppet_bhutan_nepal
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_annex_tibet }
+		x = 16
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		puppet = NEP
+		puppet = BHU
+
+			}
+		}
+	
+		focus = {
+		id = PRC_reunite_china
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_puppet_bhutan_nepal }
+		y = 5
+		x = 16
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		transfer_state = 601
+		transfer_state = 752
+		transfer_state = 751
+		transfer_state = 603
+		transfer_state = 605
+		transfer_state = 748
+		transfer_state = 744
+		transfer_state = 602
+		transfer_state = 750
+		transfer_state = 600
+		transfer_state = 595
+		transfer_state = 596
+		transfer_state = 620
+		transfer_state = 607
+		transfer_state = 749
+		transfer_state = 606
+		transfer_state = 613
+		transfer_state = 598
+		transfer_state = 608
+		transfer_state = 614
+		transfer_state = 597
+		transfer_state = 743
+
+			}
+		}
+		focus = {
+		id = PRC_military_reforms
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_a_stronger_china }
+
+		x = 8
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_political_power = 100
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				}
+			}
+		}
+		focus = {
+		id = PRC_better_infantry_equipment
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_military_reforms }
+		x = 8
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 2.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+				}
+
+			}
+		}
+		focus = {
+		id = PRC_navy
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_better_infantry_equipment }
+		x = 8
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+	focus = {
+		id = PRC_reforms
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_reunite_china }
+		prerequisite = { focus = PRC_invite_texas }
+		available = {
+		date > 1950.1.1
+		}
+		x = 8
+		y = 6
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		add_political_power = 200
+		}
+	}
+	focus = {
+		id = PRC_china
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_reforms }
+		x = 8
+		y = 7
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		set_cosmetic_tag = COM_PRC
+		COM_PRC_communism:0 "China"
+		COM_PRC_communism_DEF:0 "China"
+		}
+	}
+		focus = {
+		id = PRC_political_nation
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = PRC_china }
+		x = 8
+		y = 8
+		cost = 10
+
+		available_if_capitulated = yes
+               
+		completion_reward = {
+		add_political_power = 300
+
+		create_country_leader = {
+			name = "Mao Zedong"
+			desc = "POLITICS_MAO_ZEDONG_DESC"
+			picture = "mao_zedong_china_2.dds"
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = {
+			}
+	    }
+	     set_cosmetic_tag = COM_PRC
+         COM_PRC.tga
+        }
+
+	}
+
+}

@@ -1,0 +1,575 @@
+focus_tree = {
+	id = byzantium_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GRE
+		}
+	}
+
+	focus = {
+		id = GRE_stronger_empire
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 8
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 7
+			add_political_power = 300
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				}
+			}
+		}
+
+	focus = {
+		id = GRE_land_mass_expandation
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_stronger_empire }
+		x = 16
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 100
+			transfer_state = 356
+			transfer_state = 346
+			}
+		}
+
+	focus = {
+		id = GRE_demand_ankara
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_land_mass_expandation }
+		x = 16
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			transfer_state = 49
+			}
+		}
+
+	focus = {
+		id = GRE_puppet_turkey
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_demand_ankara }
+		x = 16
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			puppet = TUR
+			}
+		}
+
+	focus = {
+		id = GRE_annex_yugoslavia
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_puppet_turkey }
+		x = 16
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			transfer_state = 105
+			transfer_state = 107
+			transfer_state = 104
+			transfer_state = 103
+			transfer_state = 764
+			transfer_state = 45
+			transfer_state = 109
+			transfer_state = 102
+			}
+		}
+
+	focus = {
+		id = GRE_expand_our_colonies
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_stronger_empire }
+		x = 14
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 100
+			transfer_state = 665
+			}
+		}
+
+	focus = {
+		id = GRE_expand_our_african_coastline
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_expand_our_colonies }
+		x = 14
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			transfer_state = 458
+			transfer_state = 460
+			transfer_state = 513
+			}
+		}
+
+	focus = {
+		id = GRE_to_spanish_africa
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_expand_our_african_coastline }
+		x = 14
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			transfer_state = 459
+			transfer_state = 461
+			transfer_state = 462
+			}
+		}
+
+	focus = {
+		id = GRE_spanish_africa
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_to_spanish_africa }
+		x = 14
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			transfer_state = 290
+			transfer_state = 699
+			}
+		}
+
+	focus = {
+		id = GRE_byzantium_crusades
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_stronger_empire }
+		x = 12
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_ideas = crusader_nation
+			}
+		}
+
+	focus = {
+		id = GRE_iranian_crusades
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_byzantium_crusades }
+		x = 12
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+						GRE = { 
+ 			create_wargoal = {
+ 				type = take_state_focus
+ 				target = PER
+ 				generator = { 28 }
+			}
+		}
+	}
+}
+
+	focus = {
+		id = GRE_afghanistan_crusades
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_iranian_crusades }
+		x = 12
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+						GRE = { 
+ 			create_wargoal = {
+ 				type = take_state_focus
+ 				target = AFG
+ 				generator = { 28 }
+			}
+		}
+	}
+}
+
+	focus = {
+		id = GRE_the_aftermath
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GRE_afghanistan_crusades }
+		available = {
+		owns_state = 419
+		owns_state = 420
+		owns_state = 421
+		owns_state = 413
+		owns_state = 417
+		owns_state = 411
+		owns_state = 412
+		owns_state = 266
+		owns_state = 418
+		owns_state = 414
+		owns_state = 410
+		owns_state = 416
+		owns_state = 415
+		owns_state = 267
+		}
+		x = 12
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+		PER = {
+		transfer_state = 419
+		transfer_state = 420
+		transfer_state = 421
+		transfer_state = 413
+		transfer_state = 417
+		transfer_state = 411
+		transfer_state = 412
+		transfer_state = 266
+		transfer_state = 418
+		transfer_state = 414
+		transfer_state = 410
+		transfer_state = 416
+	    transfer_state = 415
+		transfer_state = 267
+
+		set_cosmetic_tag = PUP_PER
+		PUP_PER_fascism:0 "Orthodoxian State of Saint Maximo"
+		PUP_PER_fascism_DEF:0 "Orthodoxian State of Saint Maximo"
+        }
+
+        puppet = PER
+		}
+	}
+
+	focus = {
+		id = GRE_naval_research
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 2
+		prerequisite = { focus = GRE_military_strength }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+					add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+			}
+		}
+
+	focus = {
+		id = GRE_artillery
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 3
+		prerequisite = { focus = GRE_naval_research }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = arty_bonus
+				bonus = 1.0
+				uses = 2
+				category = artillery
+			}
+			}
+		}
+
+	focus = {
+		id = GRE_motorized
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 4
+		prerequisite = { focus = GRE_artillery }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_bonus
+				bonus = 1.0
+				uses = 1
+				technology = tech_recon
+				technology = tech_recon2
+				technology = tech_recon3
+			}
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_neo_industrial_revolution
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 3
+		y = 1
+		prerequisite = { focus = GRE_stronger_empire }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_rocket_science
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 3
+		y = 2
+		prerequisite = { focus = GRE_neo_industrial_revolution }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 1
+				category = rocketry 
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_more_civilian_factories
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 3
+		y = 3
+		prerequisite = { focus = GRE_rocket_science }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_more_arms_factories
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 3
+		y = 4
+		prerequisite = { focus = GRE_more_civilian_factories }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+		}
+	}
+
+	focus = {
+		id = GRE_beggining_of_nuclear_bombs
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 2
+		y = 5
+		prerequisite = { focus = GRE_more_arms_factories }
+		prerequisite = { focus = GRE_motorized }
+		available = {
+		date = 1938.4.5
+		}
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 2
+				category = electronics
+				category = rocketry
+				category = nuclear
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_more_research_on_nuclear_weapons
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 2
+		y = 6
+		prerequisite = { focus = GRE_beggining_of_nuclear_bombs }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_war_1
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 7
+		y = 1
+		prerequisite = { focus = GRE_stronger_empire }
+		mutually_exclusive = { focus = GRE_war_2 }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		 	create_wargoal = {
+ 				type = take_state_focus
+ 				target = SOV
+ 				generator = { 28 }
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_war_2
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 9
+		y = 1
+		prerequisite = { focus = GRE_stronger_empire }
+		mutually_exclusive = { focus = GRE_war_1 }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		 	create_wargoal = {
+ 				type = take_state_focus
+ 				target = PRC
+ 				generator = { 28 }
+			}
+		}
+	}
+
+	focus = {
+		id = GRE_military_strength
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 1
+		prerequisite = { focus = GRE_stronger_empire }
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				}
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				}
+			}
+		}
+}

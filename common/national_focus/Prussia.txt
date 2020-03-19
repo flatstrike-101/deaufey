@@ -1,0 +1,1632 @@
+focus_tree = {
+	id = prussian_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = GPE
+		}
+	}
+
+	focus = {
+		id = GPE_grand_german_empire
+		icon = GFX_focus_ger_revive_kaiserreich
+		x = 8
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_political_power = 300
+		}
+	}
+
+	focus = {
+		id = GPE_grand_german_conquest
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GPE_invite_austria }
+		x = 8
+		y = 4
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_wargoal = {
+ 				type = take_state_focus
+ 				target = HOL
+ 				generator = { 28 }
+			}
+			create_wargoal = {
+ 				type = take_state_focus
+ 				target = POL
+ 				generator = { 28 }
+			}
+			create_wargoal = {
+ 				type = take_state_focus
+ 				target = FRA
+ 				generator = { 28 }
+			}
+			create_wargoal = {
+ 				type = take_state_focus
+ 				target = CZE
+ 				generator = { 28 }
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_ready_up_for_war
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GPE_grand_german_empire }
+		x = 8
+		y = 1
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+					add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = land_doctrine
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				}
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = land_doctrine
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				}
+		}
+	}
+
+	focus = {
+		id = GPE_invite_britain
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GPE_ready_up_for_war }
+		x = 8
+		y = 2
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_to_faction = ENG
+		}
+	}
+
+	focus = {
+		id = GPE_invite_austria
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GPE_invite_britain }
+		x = 8
+		y = 3
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_to_faction = AUS
+		}
+	}
+
+	focus = {
+		id = GPE_treaty_of_amsterdam
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GPE_grand_german_conquest }
+		x = 8
+		y = 5
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		country_event = news.337
+		}
+	}
+
+	focus = {
+		id = GPE_duchy_benelux
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GPE_treaty_of_amsterdam }
+		mutually_exclusive = { focus = GPE_anti_monarchy }
+		x = 7
+		y = 6
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		HOL = {
+		set_cosmetic_tag = HOL_GPE
+		HOL_GPE_fascism:0 "Principality of Benelux"
+		HOL_GPE_fascism_DEF:0 "Principality of Benelux"
+
+		create_country_leader = {
+			name = "Princess Victoria"
+			desc = "POLITICS_MAO_ZEDONG_DESC"
+			picture = "princess_victoria_portrait.dds"
+			expire = "1965.1.1"
+			ideology = nazism
+			traits = {
+			}
+	    }
+		}
+		}
+	}
+
+	focus = {
+		id = GPE_duchy_poland
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = GPE_treaty_of_amsterdam }
+		mutually_exclusive = { focus = GPE_anti_monarchy }
+		x = 9
+		y = 6
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		POL = {
+		set_cosmetic_tag = POL_GPE
+		POL_GPE_fascism:0 "Principality of Poland"
+		POL_GPE_fascism_DEF:0 "Principality of Poland"
+
+		create_country_leader = {
+			name = "Prince August Wilhelm"
+			desc = "POLITICS_MAO_ZEDONG_DESC"
+			picture = "august_wilhelm_portrait.dds"
+			expire = "1965.1.1"
+			ideology = nazism
+			traits = {
+			}
+	    }
+		}
+		}
+	}
+
+	focus = {
+		id = GPE_anti_monarchy
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		#prerequisite = { focus = GPE_treaty_of_amsterdam }
+		x = 1
+		y = 0
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_ideas = anti_monarchist
+	}
+}
+
+	focus = {
+		id = GPE_overthrow_wilhelm
+		icon = GFX_focus_ger_return_of_the_kaiser
+		prerequisite = { focus = GPE_anti_monarchy }
+		x = 1
+		y = 1
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		create_faction = "Reichspakt"
+		set_cosmetic_tag = GER_GPE
+		GER_GPE_fascism:0 "Hitlersriech"
+		GER_GPE_fascism_DEF:0 "Hitlersriech"
+
+		set_province_name = { id = 6521 name = "Hitlersville"}
+
+set_politics = {
+	ruling_party = national_socialism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	strasserism = 20
+	national_socialism = 80
+}
+
+		GEA = {
+		transfer_state = 747
+		transfer_state = 325
+		transfer_state = 670
+		transfer_state = 671
+		transfer_state = 599
+		transfer_state = 594
+		transfer_state = 592
+		transfer_state = 593
+		transfer_state = 591
+		}
+
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Adolf Hitler"
+			desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+			picture = "portrait_adolf_hitler_gsa.dds"
+			expire = "1965.1.1"
+			ideology = hitlerism
+			traits = {
+			}
+		}
+	}
+}
+
+	focus = {
+		id = GPE_assassinate_the_king_of_uk
+		icon = GFX_focus_attack_britain
+		prerequisite = { focus = GPE_overthrow_wilhelm }
+		x = 1
+		y = 2
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+		set_province_name = { id = 6103 name = "Moselysville"}
+
+ENG = {
+
+		set_cosmetic_tag = ENG_GPE
+		ENG_GPE_fascism:0 "Mosely's Realm"
+		ENG_GPE_fascism_DEF:0 "Mosley's Realm"
+
+			kill_country_leader = yes
+		create_country_leader = {
+			name = "Oswald Mosley"
+			desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+			picture = "Portrait_Britain_Oswald_Mosley.dds"
+			expire = "1965.1.1"
+			ideology = nazism
+			traits = {
+			    }
+			}
+		}
+	}
+}
+
+	focus = {
+		id = GPE_assassinate_the_king_of_austria
+		icon = GFX_focus_ger_return_of_the_kaiser
+		prerequisite = { focus = GPE_assassinate_the_king_of_uk }
+		x = 1
+		y = 3
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+		set_province_name = { id = 11666 name = "Dollfussville"}
+
+AUS = {
+
+		set_cosmetic_tag = AUS_GPE
+		AUS_GPE_fascism:0 "Dollfussreich"
+		AUS_GPE_fascism_DEF:0 "Dollfussreich"
+
+			kill_country_leader = yes
+		create_country_leader = {
+			name = "Englebert Dollfuss"
+			desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+			picture = "dollfuss_portrait.dds"
+			expire = "1965.1.1"
+			ideology = nazism
+			traits = {
+			    }
+			}
+		}
+	}
+}
+
+	focus = {
+		id = GPE_armor_expansion
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = GPE_a_world_superpower }
+		x = 3
+		y = 0
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+	add_tech_bonus = {
+		name = arty_bonus
+		bonus = 1.0
+		uses = 3
+		category = armor
+		}
+	}
+}
+
+	focus = {
+		id = GPE_land_doctrine_research
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = GPE_armor_expansion }
+		x = 3
+		y = 1
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_paratroopers_research
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = GPE_land_doctrine_research }
+		x = 3
+		y = 2
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_bonus
+				bonus = 1.0
+				uses = 3
+				technology = paratroopers
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_rocketry_expansion
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = GPE_paratroopers_research }
+		#available = {
+		#date > 1938.1.1
+		#}
+		x = 3
+		y = 3
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ITA_jet_engine_effort
+				bonus = 1.0
+				uses = 3
+				category = rocketry
+				}
+			}
+		}
+
+	focus = {
+		id = GPE_wunderwaffe
+		icon = GFX_focus_generic_cryptologic_bomb
+		prerequisite = { focus = GPE_rocketry_expansion }
+		x = 3
+		y = 4
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ITA_jet_engine_effort
+				bonus = 1.0
+				uses = 4
+				category = nuclear
+				}
+			}
+		}
+
+	#focus = {
+		#id = GPE_hitlers_secret_plan
+		#icon = GFX_focus_wonderweapons
+		#prerequisite = { focus = GPE_wunderwaffe }
+		#prerequisite = { focus = GPE_assassinate_the_king_of_austria }
+		#prerequisite = { focus = GPE_invite_austria }
+		#prerequisite = { focus = GPE_invite_britain }
+		#x = 2
+		#y = 5
+		#cost = 20
+
+		#available_if_capitulated = yes
+
+		#completion_reward = {
+		#create_wargoal = {
+ 				#type = take_state_focus
+ 				#target = USA
+ 				#generator = { 28 }
+			#}
+		#create_wargoal = {
+ 				#type = take_state_focus
+ 				#target = SOV
+ 				#generator = { 28 }
+			#}
+		#create_wargoal = {
+ 				#type = take_state_focus
+ 				#target = RAJ
+ 				#generator = { 28 }
+			#}
+
+		#add_tech_bonus = {
+				#name = ITA_jet_engine_effort
+				#bonus = 1.0
+				#uses = 2
+				#category = nuclear
+				#}
+
+		#add_tech_bonus = {
+				#name = ITA_jet_engine_effort
+				#bonus = 1.0
+				#uses = 2
+				#category = rocketry
+			#}
+	    #}
+	#}
+
+	#focus = {
+		#id = GPE_treaty_of_moscow
+		#icon = GFX_goal_generic_forceful_treaty
+		#prerequisite = { focus = GPE_hitlers_secret_plan }
+		#available = {
+		#NOT = { has_war_with = SOV }
+		#NOT = { has_war_with = USA }
+		#NOT = { has_war_with = RAJ }
+		#}
+		#x = 2
+		#y = 6
+		#cost = 20
+
+		#available_if_capitulated = yes
+
+		#completion_reward = {
+		#country_event = news.338
+	    #}
+	#}
+
+	focus = {
+		id = GPE_night_of_fascism
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = GPE_assassinate_the_king_of_austria }
+		x = 1
+		y = 4
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_popularity = { ideology = fascism popularity = 0.1 }
+	    }
+	}
+
+	focus = {
+		id = GPE_industrial_research
+		icon = GFX_goal_generic_construct_civ_factory
+		#prerequisite = { focus = GPE_assassinate_the_king_of_austria }
+		x = 14
+		y = 0
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_building_construction = {
+			type = infrastructure
+			level = 10
+			instant_build = yes
+			}
+	    }
+	}
+
+	focus = {
+		id = GPE_more_factories
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = GPE_industrial_research }
+		x = 14
+		y = 1
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_building_construction = {
+			type = infrastructure
+			level = 5
+			instant_build = yes
+			}
+	    }
+	}
+
+	focus = {
+		id = GPE_civillian_factories
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = GPE_more_factories }
+		x = 14
+		y = 2
+		cost = 20
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+			}
+	    }
+	}
+
+	focus = {
+		id = GPE_synthetic_research
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = GPE_civillian_factories }
+		x = 14
+		y = 3
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+
+		}
+	}
+
+	focus = {
+		id = GPE_electronics
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = GPE_synthetic_research }
+		x = 14
+		y = 4
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = electronics
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = electronics
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = electronics
+			}
+
+		}
+	}
+
+	focus = {
+		id = GPE_anti_communist
+		icon = GFX_goal_anti_comintern_pact
+		#prerequisite = { focus = GPE_synthetic_research }
+		x = 12
+		y = 0
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_ideas = anti_soviet_pact
+		}
+	}
+
+	focus = {
+		id = GPE_war_with_wales
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = GPE_anti_communist }
+		prerequisite = { focus = GPE_invite_austria }
+		prerequisite = { focus = GPE_invite_britain }
+		x = 12
+		y = 1
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+				create_wargoal = {
+ 				type = take_state_focus
+ 				target = WLS
+ 				generator = { 28 }
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_war_with_mongolia
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = GPE_war_with_wales }
+		x = 12
+		y = 2
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+				create_wargoal = {
+ 				type = take_state_focus
+ 				target = MON
+ 				generator = { 28 }
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_war_with_texas
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = GPE_war_with_mongolia }
+		x = 12
+		y = 3
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+				create_wargoal = {
+ 				type = take_state_focus
+ 				target = TEX
+ 				generator = { 28 }
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_war_with_prc
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = GPE_war_with_texas }
+		x = 12
+		y = 4
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+ 				type = take_state_focus
+ 				target = PRC
+ 				generator = { 28 }
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_treaty_of_cardiff
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = GPE_war_with_prc }
+		avaliable = {
+		NOT = { has_war_with = PRC }
+		NOT = { has_war_with = TEX }
+		NOT = { has_war_with = WLS }
+		}
+		x = 12
+		y = 6
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		country_event = news.339
+		}
+	}
+
+	focus = {
+		id = GPE_german_reforms
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = GPE_treaty_of_cardiff }
+		prerequisite = { focus = GPE_treaty_of_moscow }
+		avaliable = {
+		date > 1940.3.3
+		}
+		x = 8
+		y = 10
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		country_event = prussia.3
+		}
+	}
+
+	focus = {
+		id = GPE_a_stronger_kaiserreich
+		icon = GFX_focus_ger_revive_kaiserreich
+		prerequisite = { focus = GPE_german_reforms }
+		available = { has_country_flag = GPE_monarchy }
+		mutually_exclusive = { focus = GPE_nazi_empire }
+		x = 2
+		y = 11
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 200
+		}
+	}
+
+	focus = {
+		id = GPE_a_renew_the_infrastructure
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = GPE_a_stronger_kaiserreich }
+		x = 1
+		y = 12
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_building_construction = {
+			type = infrastructure
+			level = 20
+			instant_build = yes
+			}
+		}
+	}
+
+	focus = {
+		id = GPE_a_bigger_military
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = GPE_a_stronger_kaiserreich }
+		x = 3
+		y = 12
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		load_oob = "GPE_1936"
+		}
+	}
+
+	focus = {
+		id = GPE_exile_the_nazis
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = GPE_a_stronger_kaiserreich }
+		x = 2
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = GPE_nazi_empire
+		icon = GFX_focus_nsdap
+		prerequisite = { focus =  }
+		available = { has_country_flag = GPE_national_socialism }
+		mutually_exclusive = { focus = GPE_a_stronger_kaiserreich }
+		x = 12
+		y = 11
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = GPE_hitler
+		icon = GFX_focus_strasser_vic
+		prerequisite = { focus = GPE_nazi_empire }
+		mutually_exclusive = { focus = GPE_strasser }
+		x = 9
+		y = 12
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+
+set_politics = {
+	ruling_party = national_socialism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	strasserism = 20
+	national_socialism = 80
+}
+
+
+		add_political_power = 30
+create_country_leader = {
+	name = "Adolf Hitler"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "portrait_adolf_hitler_gsa.dds"
+	expire = "1965.1.1"
+	ideology = national_socialism
+	traits = {
+		dictator
+	}
+}
+		}
+	}
+
+	focus = {
+		id = GPE_strasser
+		icon = GFX_focus_hitler_vic
+		prerequisite = { focus = GPE_nazi_empire }
+		mutually_exclusive = { focus = GPE_hitler }
+		x = 15
+		y = 12
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		set_politics = {
+	ruling_party = strasserism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 0
+	fascism = 10
+	communism = 0
+	strasserism = 90
+}
+		add_political_power = 30
+		}
+	}
+
+	focus = {
+		id = GPE_strasser_manifesto
+		icon = GFX_focus_ger_strassers_manifesto
+		prerequisite = { focus = GPE_strasser }
+		x = 15
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political power = 135
+		country_event = news.342
+		}
+	}
+
+	focus = {
+		id = GPE_strasser_pamphlet
+		icon = GFX_focus_ger_strassers_pamphlet
+		prerequisite = { focus = GPE_strasser }
+		x = 13
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		52 = { add_manpower = 10000}
+		}
+	}
+
+	focus = {
+		id = GPE_strasser_pamphlet
+		icon = GFX_focus_ger_strassers_letter
+		prerequisite = { focus = GPE_strasser }
+		x = 17
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		64 = { add_manpower = 90000}
+		}
+	}
+
+	focus = {
+		id = GPE_strasser_letter
+		icon = GFX_focus_ger_strassers_letter
+		prerequisite = { focus = GPE_strasser }
+		x = 17
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		64 = { add_manpower = 90000}
+		}
+	}
+
+	focus = {
+		id = GPE_rally_berlin
+		icon = GFX_focus_ger_strasser_nuremburg_rally
+		prerequisite = { focus = GPE_strasser_letter }
+		prerequisite = { focus = GPE_strasser_manifesto }
+		prerequisite = { focus = GPE_strasser_pamphlet }
+		x = 15
+		y = 14
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		set_popularities = {
+	democratic = 0
+	fascism = 7
+	communism = 0
+	strasserism = 93
+}
+		}
+	}
+
+	focus = {
+		id = GPE_no_more_capitalism
+		icon = GFX_focus_ger_destroy_capitalism
+		prerequisite = { focus = GPE_rally_berlin }
+		x = 15
+		y = 15
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		64 = { add_manpower = 1000}
+		}
+	}
+
+		focus = {
+		id = GPE_the_true_socialist_empire
+		icon = GFX_focus_ger_strasserreich
+		prerequisite = { focus = GPE_no_more_capitalism }
+		x = 15
+		y = 16
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_stability = 0.20
+		}
+	}
+
+		focus = {
+		id = GPE_educate_the_young
+		icon = GFX_focus_ger_literature_and_music
+		prerequisite = { focus = GPE_the_true_socialist_empire }
+		mutually_exclusive = { focus = GPE_more_jobs }
+		x = 14
+		y = 17
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+		}
+	}
+
+		focus = {
+		id = GPE_strasser_university
+		icon = GFX_focus_ger_strassers_university
+		prerequisite = { focus = GPE_educate_the_young }
+		x = 14
+		y = 18
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		country_event = news.343
+		}
+	}
+
+		focus = {
+		id = GPE_more_jobs
+		icon = GFX_focus_ger_red_hammers
+		prerequisite = { focus = GPE_the_true_socialist_empire }
+		mutually_exclusive = { focus = GPE_educate_the_young }
+		x = 16
+		y = 17
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		54 = { add_manpower = 400000}
+		}
+	}
+
+		focus = {
+		id = GPE_higher_payment_but_longer_time
+		icon = GFX_focus_ger_wealth_distribution
+		prerequisite = { focus = GPE_more_jobs }
+		x = 16
+		y = 18
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_stability = 0.10
+		}
+	}
+
+		focus = {
+		id = GPE_the_government
+		icon = GFX_focus_ger_one_leader
+		prerequisite = {
+			focus = GPE_higher_payment_but_longer_time
+			focus = GPE_strasser_university
+		}
+		mutually_exclusive = { focus = GPE_the_people }
+		x = 18
+		y = 19
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_ideas = dictatorship_gpe
+		}
+	}
+
+		focus = {
+		id = GPE_the_people
+		icon = GFX_focus_ger_one_people
+		prerequisite = {
+			focus = GPE_higher_payment_but_longer_time
+			focus = GPE_strasser_university
+		}
+		mutually_exclusive = { focus = GPE_the_government }
+		x = 12
+		y = 19
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		set_politics = {
+	ruling_party = strasserism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = yes
+}
+		add_ideas = home_of_the_free
+		}
+	}
+
+		focus = {
+		id = GPE_the_supreme_laws
+		icon = GFX_focus_ger_newspaper
+		prerequisite = {
+			focus = GPE_the_government
+		}
+		x = 18
+		y = 20
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_ideas = GER_mefo_bills_1
+		}
+	}
+
+		focus = {
+		id = GPE_rally_in_nuremburg
+		icon = GFX_focus_ger_strasser_nuremburg_rally
+		prerequisite = {
+			focus = GPE_the_supreme_laws
+		}
+		x = 18
+		y = 21
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		set_popularities = {
+		democratic = 0
+		fascism = 5
+		communism = 0
+		strasserism = 95
+		    }
+		}
+	}
+
+		focus = {
+		id = GPE_found_the_red_coat_organization
+		icon = GFX_focus_rm
+		prerequisite = {
+			focus = GPE_rally_in_nuremburg
+		}
+		x = 18
+		y = 22
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_ideas = general_staff
+		}
+	}
+
+		focus = {
+		id = GPE_advance_the_sa
+		icon = GFX_focus_ger_restore_SA
+		prerequisite = {
+			focus = GPE_found_the_red_coat_organization
+		}
+		x = 16
+		y = 23
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_tech_bonus = {
+				name = special_bonus
+				bonus = 2.0
+				uses = 3
+				technology = paratroopers
+			}
+		}
+	}
+
+		focus = {
+		id = GPE_advance_the_ss
+		icon = GFX_focus_ss
+		prerequisite = {
+			focus = GPE_found_the_red_coat_organization
+		}
+		x = 20
+		y = 23
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 2.0
+				uses = 3
+				category = land_doctrine
+			    }
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 2.0
+				uses = 3
+				category = infantry_weapons
+				category = artillery
+			    }
+		}
+	}
+
+focus = {
+		id = GPE_satisfy_the_people
+		icon = GFX_focus_ger_one_people
+		prerequisite = { focus = GPE_the_people }
+		x = 12
+		y = 20
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.20
+		}
+	}
+
+	focus = {
+		id = GPE_anti_rascism
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = GPE_satisfy_the_people }
+		x = 12
+		y = 21
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			52 = { add_manpower = 20000}
+		}
+	}
+
+	focus = {
+		id = GPE_free_the_jews
+		icon = GFX_free_the_jews
+		prerequisite = { focus = GPE_anti_rascism }
+		x = 12
+		y = 22
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			52 = { add_manpower = 20000}
+			67 = { add_manpower = 20000}
+		}
+	}
+
+	focus = {
+		id = GPE_complete_the_anti_rascism
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = GPE_free_the_jews }
+		x = 12
+		y = 23
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+			52 = { add_manpower = 1000}
+			67 = { add_manpower = 1000}
+			add_ideas = anti_rascism
+		}
+	}
+
+	focus = {
+		id = GPE_the_culture
+		icon = GFX_focus_ger_literature_and_music
+		prerequisite = { focus = GPE_complete_the_anti_rascism }
+		x = 12
+		y = 24
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = GPE_the_history
+		icon = GFX_focus_ger_literature_and_music
+		prerequisite = { focus = GPE_the_culture }
+		x = 12
+		y = 25
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 300
+		country_event = news.345
+		}
+	}
+
+	focus = {
+		id = GPE_the_literature
+		icon = GFX_focus_ger_literature_and_music
+		prerequisite = { focus = GPE_the_history }
+		x = 11
+		y = 26
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = -300
+		add_stability = 0.10
+		}
+	}
+
+	focus = {
+		id = GPE_the_arts
+		icon = GFX_focus_ger_literature_and_music
+		prerequisite = { focus = GPE_the_history }
+		mutually_exclusive = { focus = GPE_the_arts }
+		x = 13
+		y = 26
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 300
+		add_stability = -0.10
+		}
+	}
+
+	focus = {
+		id = GPE_a_cultural_germany
+		icon = GFX_focus_ger_literature_and_music
+		prerequisite = {
+			focus = GPE_the_arts
+			focus = GPE_the_literature
+		}
+		mutually_exclusive = { focus = GPE_the_arts }
+		x = 12
+		y = 27
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 300
+		add_stability = 0.10
+		52 = { add_manpower = 10000}
+		}
+	}
+
+	focus = {
+		id = GPE_assign_rm
+		icon = GFX_focus_rm
+		prerequisite = { focus = GPE_found_the_red_coat_organization }
+		x = 18
+		y = 24
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 300
+		}
+	}
+
+	focus = {
+		id = GPE_form_friendship_nsdap
+		icon = GFX_focus_relationship_hitler_strasserism
+		prerequisite = { focus = GPE_assign_rm }
+		x = 16
+		y = 25
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 300
+		}
+	}
+
+	focus = {
+		id = GPE_bind_fascism_strassersim
+		icon = GFX_focus_relationship_hitler_strasserism
+		prerequisite = { focus = GPE_assign_rm }
+		x = 16
+		y = 26
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		create_country_leader = {
+	    name = "Otto Strasser"
+	    desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+	    picture = "Portrait_Germany_Otto_Strasser.dds"
+	    expire = "1965.1.1"
+	    ideology = millitary
+	    traits = {
+		
+		}
+	}
+		set_politics = {
+	ruling_party = hitlerist_strasserism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	strassersim = 40
+	hitlerist_strasserism = 60
+}
+		}
+	}
+
+	focus = {
+		id = GPE_upgrade_the_reichstag
+		icon = GFX_focus_reichstag_upgrade
+		prerequisite = { focus = GPE_bind_fascism_strassersim }
+		x = 16
+		y = 27
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		create_country_leader = {
+	    name = "The Reichstag Building"
+	    desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+	    picture = "The Reichstag Building.dds"
+	    expire = "1965.1.1"
+	    ideology = millitary
+	    traits = {
+		
+		}
+	}
+		set_politics = {
+	ruling_party = hitlerist_strasserism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	strasserism = 40
+	hitlerist_strasserism = 60
+}
+		}
+	}
+
+	focus = {
+		id = GPE_crush_nsdap
+		icon = GFX_focus_nsdap
+		prerequisite = { focus = GPE_assign_rm }
+		x = 20
+		y = 25
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 300
+		set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	strasserism = 100
+	hitlerist_strasserism = 0
+}
+set_politics = {
+	ruling_party = strasserism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+		}
+	}
+
+	focus = {
+		id = GPE_exile_the_nsdap
+		icon = GFX_exile_nazis_mexico
+		prerequisite = { focus = GPE_crush_nsdap }
+		x = 20
+		y = 26
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		country_event = news.346
+		}
+	}
+
+	focus = {
+		id = GPE_ban_national_socialism
+		icon = GFX_focus_nsdap
+		prerequisite = { focus = GPE_exile_the_nsdap }
+		x = 20
+		y = 27
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_stability = 0.20
+		}
+	}
+
+	focus = {
+		id = GPE_hitlers_manifesto
+		icon = GFX_nazi_manifesto
+		prerequisite = { focus = GPE_hitler }
+		x = 9
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_stability = 0.40
+		add_political_power = 300
+		}
+	}
+
+	focus = {
+		id = GPE_hitlers_letter
+		icon = GFX_hitler_nazi_letter
+		prerequisite = { focus = GPE_hitler }
+		x = 11
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = GPE_hitlers_pamphlet
+		icon = GFX_hitler_nazi_pamphlet
+		prerequisite = { focus = GPE_hitler }
+		x = 7
+		y = 13
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = GPE_march_in_berlin
+		icon = GFX_german_march
+		prerequisite = { focus = GPE_hitlers_pamphlet }
+		prerequisite = { focus = GPE_hitlers_letter }
+		prerequisite = { focus = GPE_hitlers_manifesto }
+		x = 9
+		y = 14
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	strasserism = 7
+	national_socialism = 93
+}
+		}
+	}
+
+	focus = {
+		id = GPE_out_with_communism
+		icon = GFX_no_more_communism
+		prerequisite = { focus = GPE_march_in_berlin }
+		x = 9
+		y = 15
+		cost = 20
+
+		available_if_capitulated = yes
+		completion_reward = {
+		add_political_power = 300
+		add_stability = 0.25
+		}
+	}
+}
