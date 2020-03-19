@@ -1,0 +1,24 @@
+add_namespace = communist_china 
+
+country_event = {
+	id = mon.1
+	title = mon.1.t
+	desc = mon.1.d
+	picture = GFX_report_event_physics_lab_01
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mon.1.a	#sounds good
+		ai_chance = { factor = 90 }
+		add_political_power = 10
+		country_event = { id = prc.2 }
+		PRC = {
+			add_to_faction = MON
+			}
+		}
+	option = {
+		name = mon.1.b	
+		ai_chance = { factor = 10 }
+		}
+	}

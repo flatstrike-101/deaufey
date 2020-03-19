@@ -1,0 +1,32 @@
+add_namespace = communist_china 
+
+country_event = {
+	id = prc.1
+	title = prc.1.t
+	desc = prc.1.d
+	picture = GFX_report_event_physics_lab_01
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.1.a	#sounds good
+		ai_chance = { factor = 100 }
+		add_political_power = 10
+		PRC = {
+			add_to_faction = NKO
+			}
+		}
+	}
+country_event = {
+	id = prc.2
+	title = prc.2.t
+	desc = prc.2.d
+	picture = GFX_report_event_physics_lab_01
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.2.a	#sounds good
+		ai_chance = { factor = 100 }
+		}
+	}

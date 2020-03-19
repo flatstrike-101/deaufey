@@ -1,0 +1,130 @@
+add_namespace = prussia
+#
+
+country_event = {
+	id = prussia.5
+	title = prussia.5.t
+	desc = prussia.5.d
+	picture = GFX_news_event_mass_arson
+	
+	major = yes
+	
+	is_triggered_only = no
+	
+	option = {
+		name = prussia.5.a
+		GPE = {
+		add_political_power = -5
+		add_stability = -0.05
+		country_event = prussia.6
+		}
+	}
+
+		option = {
+		name = prussia.5.b
+		GPE = {
+		add_political_power = -50
+		add_stability = -0.10
+		}
+	}
+}
+
+country_event = {
+	id = prussia.6
+	title = prussia.6.t
+	desc = prussia.6.d
+	picture = GFX_news_event_mass_arson
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prussia.6.a
+		}
+
+country_event = {
+	id = prussia.3
+	title = prussia.3.t
+	desc = prussia.3.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prussia.3.a
+		GPE = {
+		set_cosmetic_tag = RET_GPE
+		RET_GPE_fascism:0 "Deutsches Reich"
+		RET_GPE_fascism_DEF:0 "Deutsches Reich"
+		set_province_name = { id = 6521 name = "Germania"}
+		set_country_flag = GPE_national_socialism
+		}
+	}
+
+	option = {
+		name = prussia.3.b
+		GPE = {
+		remove_ideas = anti_monarchist
+		country_event = news.341
+		set_cosmetic_tag = KAI_GPE
+		KAI_GPE_fascism:0 "Neues Deutsches Kaiserreich"
+		KAI_GPE_fascism_DEF:0 "Neues Deutsches Kaiserreich"
+		set_province_name = { id = 6521 name = "Wilhelmsburg"}
+		create_faction = "Imperien Europas"
+		add_to_faction = ENG
+		add_to_faction = AUS
+		kill_country_leader = yes
+		set_country_flag = GPE_monarchy
+
+		create_country_leader = {
+			name = "Wilhelm III"
+			desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+			picture = "portrait_william_iii_germany.dds"
+			expire = "1965.1.1"
+			ideology = nazism
+			traits = {
+			    }
+			id = 8801
+			}
+
+		}
+	}
+
+country_event = {
+	id = prussia.4
+	title = prussia.4.t
+	desc = prussia.4.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prussia.4.a
+		GPE = {
+				add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			}
+			add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = industry
+			    }
+		    }
+		}
+	}
+}
